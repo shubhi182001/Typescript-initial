@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var num = 10;
 var str = "shubhi kedia";
 let comp = Math.sqrt(16);
@@ -24,12 +15,10 @@ let num2;
 num2 = "shubhi";
 num2 = 5;
 num2 = true;
-function fetch() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const res = yield fetch("https://api.example.com/data");
-        const data = yield res.json();
-        return data;
-    });
+async function fetch() {
+    const res = await fetch("https://api.example.com/data");
+    const data = await res.json();
+    return data;
 }
 const person = {
     name: "shubhi",
@@ -149,8 +138,14 @@ const product1 = {
     price: 300,
     quantity: 1
 };
+const product2 = {
+    name: "sanket",
+    price: 100,
+    quantity: 2
+};
 const calcnumber = (product1) => {
     const { price, quantity } = product1;
     return price * quantity;
 };
 console.log(calcnumber(product1));
+console.log(calcnumber(product2));

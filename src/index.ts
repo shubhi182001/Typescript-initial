@@ -220,12 +220,17 @@ const product1:Products={
     price:300,
     quantity:1
 }
+const product2:Products={
+    name:"sanket",
+    price:100,
+    quantity:2
+}
 
 const calcnumber = (product1:Products):number => {
     const{price, quantity} = product1;
     return price*quantity;
 }
 console.log(calcnumber(product1));
-
+console.log(calcnumber(product2));
 
 
