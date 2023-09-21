@@ -129,3 +129,99 @@ temp.celsius = 87; //setter is called
 console.log(temp.fahrenheit); //getter
 temp.fahrenheit = 90; //setter
 console.log(temp.celsius); //getter
+//STATIC PROPERTIES & METHODS:
+//In ts , static methods and properties belong to class itself rather than to instances of the class. By making methods & properties static we can access them directly without needing to create an instance of the class. This is useful for utility functions or properties that don't rely on instance-specific data.
+class Maths {
+    static pi = Math.PI;
+    static add(num1, num2) {
+        return num1 + num2;
+    }
+    static sub(num1, num2) {
+        return num1 - num2;
+    }
+}
+console.log(Maths.pi);
+console.log(Maths.add(5, 2));
+console.log(Maths.sub(3, 1));
+//Abstract Class:
+//provides a way to define common properties and methods that multiple derived classes can share. Promotes code reuse & helps establish a common interface for related classes.
+//they can't be instantiated -> because it is only used for taking and giving data.
+//They focus on class inheritance and sharing common functionality.
+//where as useContext hook in react focuses on managing global state & allowing components to consume the state.
+class Shape {
+    color;
+    constructor(color) {
+        this.color = color;
+    }
+}
+class Circle extends Shape {
+    color;
+    radius;
+    constructor(color, radius) {
+        super(color);
+        this.color = color;
+        this.radius = radius;
+    }
+    calculateArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+    displayArea = () => {
+        console.log(`This is a ${this.color} circle with radius ${this.radius}`);
+    };
+}
+const circle = new Circle("red", 5);
+console.log(circle.calculateArea());
+circle.displayArea;
+class Rectangle extends Shape {
+    color;
+    length;
+    breadth;
+    constructor(color, length, breadth) {
+        super(color);
+        this.color = color;
+        this.length = length;
+        this.breadth = breadth;
+    }
+    calculateArea() {
+        return this.length * this.breadth;
+    }
+    displayArea = () => {
+        console.log(`This is a ${this.color} circle with length ${this.length} & ${this.breadth}`);
+    };
+}
+const rect = new Rectangle("black", 5, 4);
+console.log(rect.calculateArea());
+const BioData = {
+    name: "shubhi",
+    age: 22,
+    city: "ghaziabad",
+    state: "UP"
+};
+console.log(BioData);
+const Bio = {
+    name: "shubhi",
+    city: "ghaziabad",
+    age: 21,
+    state: "UP"
+};
+const Bioo = {
+    name: "shubhi",
+    age: 22,
+    city: "tanda",
+    country: "India"
+};
+// INTERFACES INTO CLASSES:
+class Reference {
+    name;
+    age;
+    city;
+    country;
+    constructor(name, age, city, country) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+        this.country = country;
+    }
+}
+const ref1 = new Reference("shubhi", 21, "pune", "UP");
+console.log(ref1);
